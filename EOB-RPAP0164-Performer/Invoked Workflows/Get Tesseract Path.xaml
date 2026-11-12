@@ -1,0 +1,139 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Get_Tesseract_Path" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_TesseractPath" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Get_Tesseract_Path_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Get_Tesseract_Path" sap:VirtualizedContainerService.HintSize="863.3333333333333,1432" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="TesseractPath" />
+      <Variable x:TypeArguments="x:Boolean" Name="pathFound" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Starting 'Get Tesseract Path.xaml'&quot;]" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="out_TesseractPath = &quot;&quot;&#xA;out_Found = False&#xA;&#xA;' --- Step 1: Check the registry (standard UB-Mannheim installer) ---&#xA;Try&#xA;    Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(&#xA;        &quot;SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Tesseract-OCR&quot;)&#xA;&#xA;    If regKey IsNot Nothing Then&#xA;        Dim installLoc As Object = regKey.GetValue(&quot;InstallLocation&quot;)&#xA;        If installLoc IsNot Nothing Then&#xA;            Dim candidate As String = Path.Combine(installLoc.ToString(), &quot;tesseract.exe&quot;)&#xA;            If File.Exists(candidate) Then&#xA;                out_TesseractPath = candidate&#xA;                out_Found = True&#xA;            End If&#xA;        End If&#xA;    End If&#xA;Catch ex As Exception&#xA;    ' Registry lookup failed or key not present, continue to next check&#xA;End Try&#xA;&#xA;' --- Step 2: Check PATH via where.exe ---&#xA;If Not out_Found Then&#xA;    Try&#xA;        Dim psi As New ProcessStartInfo()&#xA;        psi.FileName = &quot;where.exe&quot;&#xA;        psi.Arguments = &quot;tesseract&quot;&#xA;        psi.RedirectStandardOutput = True&#xA;        psi.UseShellExecute = False&#xA;        psi.CreateNoWindow = True&#xA;&#xA;        Using proc As Process = Process.Start(psi)&#xA;            Dim output As String = proc.StandardOutput.ReadToEnd().Trim()&#xA;            proc.WaitForExit()&#xA;&#xA;            If proc.ExitCode = 0 AndAlso Not String.IsNullOrEmpty(output) Then&#xA;                ' where.exe can return multiple lines; take the first&#xA;                Dim firstLine As String = output.Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)(0)&#xA;                If File.Exists(firstLine) Then&#xA;                    out_TesseractPath = firstLine&#xA;                    out_Found = True&#xA;                End If&#xA;            End If&#xA;        End Using&#xA;    Catch ex As Exception&#xA;        ' where.exe failed or not found, continue to next check&#xA;    End Try&#xA;End If&#xA;&#xA;' --- Step 3: Scan common root folders as a last resort ---&#xA;If Not out_Found Then&#xA;    Dim roots As String() = {&#xA;        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),&#xA;        Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),&#xA;        Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86)&#xA;    }&#xA;&#xA;    For Each root In roots&#xA;        If out_Found Then Exit For&#xA;        Try&#xA;            Dim matches As String() = Directory.GetFiles(root, &quot;tesseract.exe&quot;, SearchOption.AllDirectories)&#xA;            If matches.Length &gt; 0 Then&#xA;                out_TesseractPath = matches(0)&#xA;                out_Found = True&#xA;            End If&#xA;        Catch ex As UnauthorizedAccessException&#xA;            ' Skip folders we can't read&#xA;        Catch ex As Exception&#xA;            ' Skip any other scan errors for this root and keep going&#xA;        End Try&#xA;    Next&#xA;End If" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="502,197.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_TesseractPath">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="TesseractPath" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_Found">
+          <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="pathFound" />
+        </OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <If Condition="[pathFound=True]" DisplayName="If Tesseract Path Found" sap:VirtualizedContainerService.HintSize="502,868" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,521.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_TesseractPath]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[TesseractPath]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Tesseract Path Found&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Tesseract Path: &quot; + TesseractPath]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw Exception="[New SystemException(&quot;SE_Unable To Locate Tesseract Path On Machine&quot;)]" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Completed 'Get Tesseract Path.xaml'&quot;]" />
+  </Sequence>
+</Activity>

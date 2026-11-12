@@ -1,0 +1,174 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Send_Email" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:v="clr-namespace:VA_COE_LIB_Notification;assembly=VA_COE_LIB_Notification" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="in_EmailSubject" Type="InArgument(x:String)" />
+    <x:Property Name="in_EmailBody" Type="InArgument(x:String)" />
+    <x:Property Name="out_Status" Type="OutArgument(x:String)" />
+    <x:Property Name="out_StatusMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="in_EmailTo" Type="InArgument(x:String)" />
+    <x:Property Name="in_AttachmentsExist" Type="InArgument(x:Boolean)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="in_Attachments" Type="InArgument(s:String[])" />
+  </x:Members>
+  <this:Send_Email.in_Attachments>
+    <InArgument x:TypeArguments="s:String[]" />
+  </this:Send_Email.in_Attachments>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Send_Email_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>VA_COE_LIB_Notification</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Enums</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Enums</x:String>
+      <x:String>Microsoft.Graph</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail</x:String>
+      <x:String>UiPath.Activities.System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>VA_COE_LIB_Notification</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph</AssemblyReference>
+      <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Send_Email" sap:VirtualizedContainerService.HintSize="1194.6666666666667,1744.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Started 'Send Email.xaml'&quot;]" />
+    <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[in_AttachmentsExist]" sap:VirtualizedContainerService.HintSize="496.6666666666667,1024.6666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <v:SendEmailWithAttachments x:Key="True" sap:VirtualizedContainerService.HintSize="456.6666666666667,829.3333333333334" sap2010:WorkflowViewState.IdRef="SendEmailWithAttachments_1" in_AppSecret="[in_Config(&quot;RPAP0164_EmailSetting_AppSecret&quot;).ToString]" in_ApplicationID="[in_Config(&quot;RPAP0164_EmailSetting_ApplicationID&quot;).ToString]" in_Attachments="[in_Attachments]" in_AutomationID="[in_Config(&quot;RPAP0164_EmailSetting_AutomationID&quot;).ToString]" in_EmailBody="[in_EmailBody]" in_EmailFormatHTML="True" in_EmailFrom="[in_Config(&quot;RPAP0164_EmailSetting_EmailFrom&quot;).ToString]" in_EmailSubject="[in_EmailSubject]" in_EmailTo="[in_EmailTo]" in_MSGraphConnectionDelay="[Convert.ToInt32(in_Config(&quot;RPAP0164_MSGraphConnectionDelay&quot;))]" in_TenantID="[in_Config(&quot;RPAP0164_EmailSetting_TenantID&quot;)]" out_Status="[out_Status]" out_StatusMessage="[out_StatusMessage]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <v:SendEmailWithAttachments.in_EmailBCC>
+          <InArgument x:TypeArguments="x:String">
+            <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+          </InArgument>
+        </v:SendEmailWithAttachments.in_EmailBCC>
+        <v:SendEmailWithAttachments.in_EmailCC>
+          <InArgument x:TypeArguments="x:String">
+            <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+          </InArgument>
+        </v:SendEmailWithAttachments.in_EmailCC>
+      </v:SendEmailWithAttachments>
+      <v:SendEmail x:Key="False" sap:VirtualizedContainerService.HintSize="456.6666666666667,776.6666666666666" sap2010:WorkflowViewState.IdRef="SendEmail_1" in_AppSecret="[in_Config(&quot;RPAP0164_EmailSetting_AppSecret&quot;)]" in_ApplicationID="[in_Config(&quot;RPAP0164_EmailSetting_ApplicationID&quot;)]" in_AutomationID="[in_Config(&quot;RPAP0164_EmailSetting_AutomationID&quot;).ToString]" in_EmailBody="[in_EmailBody]" in_EmailFormatHTML="True" in_EmailFrom="[in_Config(&quot;RPAP0164_EmailSetting_EmailFrom&quot;)]" in_EmailSubject="[in_EmailSubject]" in_EmailTo="[in_EmailTo]" in_MSGraphConnectionDelay="[Convert.ToInt32(in_Config(&quot;RPAP0164_MSGraphConnectionDelay&quot;))]" in_TenantID="[in_Config(&quot;RPAP0164_EmailSetting_TenantID&quot;)]" out_Status="[out_Status]" out_StatusMessage="[out_StatusMessage]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <v:SendEmail.in_EmailBCC>
+          <InArgument x:TypeArguments="x:String">
+            <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+          </InArgument>
+        </v:SendEmail.in_EmailBCC>
+        <v:SendEmail.in_EmailCC>
+          <InArgument x:TypeArguments="x:String">
+            <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+          </InArgument>
+        </v:SendEmail.in_EmailCC>
+      </v:SendEmail>
+    </Switch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Email Sent Status: &quot; + out_Status]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.6666666666667,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Email Sent Status Message: &quot; + out_StatusMessage]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.6666666666667,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Completed 'Send Email.xaml'&quot;]" />
+  </Sequence>
+</Activity>
